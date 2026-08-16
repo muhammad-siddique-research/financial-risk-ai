@@ -75,24 +75,33 @@ Models will be evaluated using:
 7. Explainable AI Analysis
 8. Research Findings and Interpretation
 
-## Project Structure
-financial-risk-ai/
+### Project Structure
 
-── README.md
-── data/
-── raw and processed datasets
-── notebooks/
-── 01_data_collection.ipynb
-── 02_data_cleaning.ipynb
-── 03_exploratory_analysis.ipynb
-── 04_modeling.ipynb
-── 05_results.ipynb
-── src/
-── reusable Python functions
-── figures/
-── visualizations and model outputs
-── models/
-── trained models
-── requirements.txt
+```text
+financial-risk-ai/
+│
+├── README.md
+│
+├── data/
+│   └── Raw and processed datasets
+│
+├── notebooks/
+│   ├── 01_data_collection.ipynb
+│   ├── 02_data_cleaning.ipynb
+│   ├── 03_exploratory_analysis.ipynb
+│   ├── 04_modeling.ipynb
+│   └── 05_results.ipynb
+│
+├── src/
+│   └── Reusable Python functions
+│
+├── figures/
+│   └── Visualizations and model outputs
+│
+├── models/
+│   └── Trained machine learning models
+│
+└── requirements.txt
+```
 
 ## References
