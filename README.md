@@ -7,10 +7,13 @@
 This project investigates whether machine learning approaches can improve financial risk prediction compared with traditional econometric methods.
 The study integrates financial analytics, statistical modeling, and artificial intelligence to develop interpretable predictive models.
 
+## Research Motivation
+
+Financial risk assessment is a critical challenge for businesses and financial institutions. Traditional econometric approaches provide interpretability, while machine learning methods offer improved predictive capabilities. This project explores how these approaches can complement each other to develop reliable and interpretable financial risk prediction models.
+
 ## Research Contribution
 
-This project demonstrates how traditional econometric approaches and modern machine learning techniques can complement each other for financial risk analysis.
-The goal is not only predictive accuracy but also interpretability and evidence-based decision support.
+This project aims to demonstrate how econometric reasoning and artificial intelligence can be integrated to improve financial risk analysis. The focus is not only predictive performance but also model interpretation and evidence-based decision support.
 
 ## Research Questions
 
