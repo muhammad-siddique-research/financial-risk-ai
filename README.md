@@ -340,6 +340,6 @@ Research Interests:
 - Artificial Intelligence
 - Machine Learning
 - Econometrics
-- Financial Analytics
+- Economist & Financial Analytics
 - Explainable AI
 - Quantitative Research
