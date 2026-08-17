@@ -182,6 +182,43 @@ Models were evaluated using:
 - Confusion Matrix
 
 ---
+# Results and Model Interpretation
+
+## Model Performance Comparison
+
+The developed machine learning models were evaluated using multiple classification metrics including accuracy, precision, recall, F1-score, and ROC-AUC.
+
+![Model Performance Comparison](figures/model_comparison.png)
+
+
+## ROC Curve Analysis
+
+ROC curves demonstrate the discrimination capability of different predictive models. Higher ROC-AUC values indicate stronger ability to distinguish between financially healthy and high-risk companies.
+
+![ROC Curve Comparison](figures/roc_curve_comparison.png)
+
+
+## Explainable AI Analysis (SHAP)
+
+SHAP (SHapley Additive exPlanations) was applied to interpret model predictions and identify the financial indicators contributing most to bankruptcy risk classification.
+
+![SHAP Feature Importance](figures/shap_feature_importance.png)
+
+
+## Exploratory Data Analysis Insights
+
+### Correlation Structure of Financial Indicators
+
+The correlation matrix highlights relationships among financial variables and helps identify potential multicollinearity and important financial patterns.
+
+![Correlation Heatmap](figures/correlation_heatmap.png)
+
+
+### Financial Indicators Associated with Bankruptcy Risk
+
+Correlation analysis was performed to identify financial indicators showing stronger relationships with bankruptcy outcomes.
+
+![Bankruptcy Correlation Analysis](figures/bankruptcy_correlation.png)
 
 # Model Performance Results
 
