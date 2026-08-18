@@ -1,5 +1,8 @@
+"""
 Financial Risk AI Package
 
-Machine learning framework for corporate bankruptcy prediction.
+Reusable modules for corporate bankruptcy
+prediction using machine learning approaches.
+"""
 
 __version__ = "1.0.0"
