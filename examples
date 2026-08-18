@@ -1,1 +1,24 @@
+"""
+Example prediction workflow for corporate bankruptcy risk.
+"""
 
+import pandas as pd
+from src.predict import predict_risk
+
+
+# Example financial indicators
+# Replace values with actual company financial data
+
+sample_company = pd.DataFrame(
+    [[0.5] * 96]
+)
+
+
+prediction, probability = predict_risk(sample_company)
+
+
+print("Bankruptcy Prediction:")
+print(prediction)
+
+print("\nRisk Probability:")
+print(probability)
