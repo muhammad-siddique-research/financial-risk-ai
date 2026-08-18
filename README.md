@@ -109,7 +109,10 @@ Models were evaluated using:
 
 ## Model Performance Comparison
 
+
 ![Model Performance Comparison](figures/model_comparison.png)
+
+
 
 | Model | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
 |---|---:|---:|---:|---:|---:|
