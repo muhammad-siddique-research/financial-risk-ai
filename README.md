@@ -128,9 +128,9 @@ The comparative results demonstrate that machine learning ensemble approaches pr
 
 | Model | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
 |---|---:|---:|---:|---:|---:|
-| Logistic Regression | 96.19% | 30.00% | 13.64% | 18.75% | 86.94% |
-| Random Forest | 96.99% | 63.64% | 15.91% | 25.45% | 94.18% |
-| XGBoost | 96.99% | 57.14% | 27.27% | 36.92% | 94.08% |
+| Logistic Regression | 96.19% | 30.00% | 13.64% | 18.75% | 85.23% |
+| Random Forest | 96.92% | 60.00% | 13.64% | 22.22% | 93.80% |
+| XGBoost | 97.29% | 65.22% | 34.09% | 44.78% | 94.72% |
 
 ### Key Observation
 
@@ -350,28 +350,14 @@ financial-risk-ai/
 
 ---
 
-# Reproducibility
+## Reproducible Training Pipeline
 
-Clone the repository:
+The project implements a modular machine learning pipeline.
 
-```bash
-git clone https://github.com/muhammad-siddique-research/financial-risk-ai.git
-```
-
-Install dependencies:
+Run:
 
 ```bash
-pip install -r requirements.txt
-```
-
-Run notebooks sequentially:
-
-1. Data Collection
-2. Data Cleaning
-3. Exploratory Analysis
-4. Feature Engineering
-5. Modeling and Evaluation
-
+python -m src.train
 ---
 
 # Research Contribution
@@ -388,7 +374,7 @@ The research highlights how AI-based financial risk models can achieve predictiv
 
 # Author
 
-**Muhammad Siddique**
+Muhammad Siddique, PhD
 
 Research Interests:
 
