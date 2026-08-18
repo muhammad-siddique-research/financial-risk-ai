@@ -1,12 +1,30 @@
 cff-version: 1.2.0
-title: Financial Risk Prediction Using Econometric and Machine Learning Approaches
-author:
-  - family-names: Siddique
-    given-names: Muhammad
-repository-code: https://github.com/muhammad-siddique-research/financial-risk-ai
+
+title: "Financial Risk Prediction Using Econometric and Machine Learning Approaches"
+
+message: "If you use this software or research framework, please cite this repository."
+
+type: software
+
+authors:
+  - family-names: "Siddique"
+    given-names: "Muhammad"
+
+repository-code: "https://github.com/muhammad-siddique-research/financial-risk-ai"
+
 keywords:
-  - Machine Learning
-  - Financial Risk
-  - Explainable AI
-  - XGBoost
-  - Econometrics
+  - "Machine Learning"
+  - "Financial Risk Prediction"
+  - "Bankruptcy Prediction"
+  - "Explainable AI"
+  - "XGBoost"
+  - "Random Forest"
+  - "Econometrics"
+  - "Python"
+
+abstract: >
+  This project develops an interpretable artificial intelligence framework
+  for corporate financial risk prediction by integrating econometric methods,
+  machine learning models, and explainable AI techniques.
+
+license: "MIT"
