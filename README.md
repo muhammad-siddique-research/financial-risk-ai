@@ -124,6 +124,7 @@ Models were evaluated using:
 
 # Model Interpretation
 
+
 ## ROC Curve Analysis
 
 ROC-AUC evaluation demonstrates the ability of each model to distinguish between financially healthy and distressed companies.
@@ -145,12 +146,14 @@ SHAP (SHapley Additive exPlanations) was applied to interpret model predictions 
 
 Correlation analysis was performed to understand relationships among financial indicators.
 
+
 ![Correlation Heatmap](figures/correlation_heatmap.png)
 
 
 ## Bankruptcy Risk Indicators
 
 The analysis explored financial variables associated with bankruptcy outcomes.
+
 
 ![Bankruptcy Correlation](figures/bankruptcy_correlation.png)
 
