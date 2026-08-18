@@ -13,7 +13,6 @@ def load_data(path):
     """
     return pd.read_csv(path)
 
-
 def check_missing_values(df):
     """
     Check missing values in dataset.
