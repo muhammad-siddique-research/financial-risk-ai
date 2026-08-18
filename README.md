@@ -241,7 +241,13 @@ financial-risk-ai/
 │   ├── shap_feature_importance.png
 │   ├── correlation_heatmap.png
 │   └── bankruptcy_correlation.png
-│
+|
+├── src/
+├── preprocessing.py
+├── feature_engineering.py
+├── models.py
+├── evaluation.py
+└── predict.py
 ├── README.md
 └── requirements.txt
 ```
