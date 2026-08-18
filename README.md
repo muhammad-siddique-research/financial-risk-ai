@@ -1,5 +1,5 @@
 # Financial Risk Prediction Using Econometric and Machine Learning Approaches
-
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-XGBoost%20%7C%20Random%20Forest-green)
 ![Explainable AI](https://img.shields.io/badge/Explainable%20AI-SHAP-orange)
