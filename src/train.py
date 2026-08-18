@@ -2,7 +2,7 @@
 Financial Risk Prediction Pipeline
 
 Author:
-Muhammad Siddique
+Muhammad Siddique, PhD
 
 Purpose:
 End-to-end reproducible training pipeline for corporate
