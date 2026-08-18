@@ -1,4 +1,4 @@
-# Financial Risk Prediction Using Econometric and Machine Learning Approaches
+# Explainable AI for Corporate Bankruptcy Prediction Integrating Econometric and Machine Learning Approaches
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-XGBoost%20%7C%20Random%20Forest-green)
@@ -288,34 +288,53 @@ financial-risk-ai/
 ├── data/
 │   ├── raw/
 │   └── processed/
-│
+
 ├── notebooks/
 │   ├── 01_data_collection.ipynb
 │   ├── 02_data_cleaning.ipynb
 │   ├── 03_exploratory_analysis.ipynb
 │   ├── 04_feature_engineering.ipynb
 │   └── 05_modeling.ipynb
-│
-├── results/
-│   ├── model_comparison.csv
-│   └── shap_feature_importance.csv
-│
+
+├── src/
+│   ├── preprocessing.py
+│   ├── feature_engineering.py
+│   ├── models.py
+│   ├── evaluation.py
+│   ├── predict.py
+│   ├── train.py
+│   └── utils.py
+
+├── models/
+│   ├── logistic_regression.pkl
+│   ├── random_forest.pkl
+│   ├── xgboost.pkl
+│   └── scaler.pkl
+
 ├── figures/
 │   ├── model_comparison.png
 │   ├── roc_curve_comparison.png
 │   ├── shap_feature_importance.png
+│   ├── confusion_matrix_xgboost.png
+│   ├── confusion_matrix_random_forest.png
 │   ├── correlation_heatmap.png
 │   └── bankruptcy_correlation.png
-|
-├── src/
-├── preprocessing.py
-├── feature_engineering.py
-├── models.py
-├── evaluation.py
-└── predict.py
+
+├── results/
+│   ├── model_comparison.csv
+│   └── shap_feature_importance.csv
+
+├── reports/
+│   └── financial_risk_analysis_report.md
+
+├── examples/
+│   └── predict_example.py
+
 ├── README.md
+├── REFERENCES.md
+├── CITATION.cff
+├── LICENSE
 └── requirements.txt
-```
 
 ---
 
