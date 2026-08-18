@@ -92,26 +92,38 @@ Three classification models were developed and compared:
 
 ---
 
-# Model Evaluation
+# Model Evaluation and Results
 
-Models were evaluated using:
+## Evaluation Framework
 
-- Accuracy
-- Precision
-- Recall
-- F1-score
-- ROC-AUC
-- Confusion Matrix
+The developed models were evaluated using multiple performance metrics to provide a comprehensive assessment of predictive capability.
+
+The evaluation framework includes:
+
+- **Accuracy:** Overall classification correctness
+- **Precision:** Ability to correctly identify financially distressed companies among predicted risk cases
+- **Recall:** Ability to detect actual financially distressed companies
+- **F1-score:** Balance between precision and recall
+- **ROC-AUC:** Overall discrimination capability between healthy and high-risk companies
+- **Confusion Matrix:** Detailed analysis of classification errors
+
+Using multiple evaluation criteria is particularly important for bankruptcy prediction because the cost of incorrectly classifying a financially distressed company can be substantially higher than a simple accuracy measure suggests.
 
 ---
 
-# Results
+# Predictive Model Performance
+
+Three models were developed and compared:
+
+1. Logistic Regression as an interpretable econometric baseline
+2. Random Forest as an ensemble learning approach
+3. XGBoost as an advanced gradient boosting model
 
 ## Model Performance Comparison
 
+The comparative results demonstrate that machine learning ensemble approaches provide stronger predictive capability compared with the traditional logistic regression baseline.
 
 ![Model Performance Comparison](figures/model_comparison.png)
-
 
 
 | Model | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
@@ -120,45 +132,92 @@ Models were evaluated using:
 | Random Forest | 96.99% | 63.64% | 15.91% | 25.45% | 94.18% |
 | XGBoost | 96.99% | 57.14% | 27.27% | 36.92% | 94.08% |
 
+### Key Observation
+
+Random Forest achieved the highest ROC-AUC score, demonstrating strong capability in distinguishing between financially healthy and distressed companies.
+
+XGBoost achieved the highest F1-score, indicating a better balance between identifying risky companies and limiting incorrect classifications.
+
+Although accuracy values are high, the lower recall values highlight the challenge of detecting all bankruptcy cases in an imbalanced financial risk dataset.
+
 ---
 
-# Model Interpretation
+# Model Discrimination Analysis
 
+## ROC Curve Comparison
 
-## ROC Curve Analysis
+ROC-AUC analysis evaluates how effectively each model separates financially healthy companies from distressed companies across different classification thresholds.
 
-ROC-AUC evaluation demonstrates the ability of each model to distinguish between financially healthy and distressed companies.
+Higher ROC-AUC values indicate stronger discrimination capability.
 
 ![ROC Curve Comparison](figures/roc_curve_comparison.png)
 
+---
 
-## Explainable AI Analysis
+# Classification Error Analysis
 
-SHAP (SHapley Additive exPlanations) was applied to interpret model predictions and identify influential financial indicators.
+## Confusion Matrix Evaluation
 
-![SHAP Feature Importance](figures/shap_feature_importance.png)
+Confusion matrices provide deeper insight into model errors, particularly false negatives where financially distressed companies may be incorrectly classified as healthy.
+
+This analysis is important for financial risk applications because missed risk cases may lead to significant economic consequences.
+
+## Random Forest Confusion Matrix
+
+![Random Forest Confusion Matrix](figures/confusion_matrix_random_forest.png)
+
+
+## XGBoost Confusion Matrix
+
+![XGBoost Confusion Matrix](figures/confusion_matrix_xgboost.png)
 
 ---
 
-# Exploratory Data Analysis
+# Explainable Artificial Intelligence Analysis
 
-## Financial Variable Relationships
+Machine learning models can achieve strong predictive performance but may lack transparency.
 
-Correlation analysis was performed to understand relationships among financial indicators.
+To address this limitation, SHAP (SHapley Additive exPlanations) was applied to identify the financial indicators influencing model predictions.
 
+## Global Feature Importance
+
+The SHAP analysis identifies the most influential financial variables contributing to bankruptcy risk classification.
+
+![SHAP Feature Importance](figures/shap_feature_importance.png)
+
+
+## Individual Prediction Explanation
+
+SHAP waterfall analysis provides a detailed explanation of how individual financial indicators contribute toward a specific model prediction.
+
+This improves transparency by answering:
+
+> Why was this company classified as financially risky?
+
+![SHAP Waterfall Explanation](figures/shap_waterfall_example.png)
+
+---
+
+# Exploratory Data Analysis Insights
+
+Before model development, exploratory analysis was conducted to understand financial variable relationships and identify important patterns within the dataset.
+
+## Correlation Structure of Financial Variables
+
+The correlation matrix provides insights into relationships among financial indicators and helps identify potential multicollinearity patterns.
 
 ![Correlation Heatmap](figures/correlation_heatmap.png)
 
 
-## Bankruptcy Risk Indicators
+## Financial Indicators Associated with Bankruptcy Risk
 
-The analysis explored financial variables associated with bankruptcy outcomes.
+Correlation analysis was used to examine financial variables showing stronger relationships with bankruptcy outcomes.
 
+These relationships provide additional economic interpretation of the factors associated with financial distress.
 
-![Bankruptcy Correlation](figures/bankruptcy_correlation.png)
+![Bankruptcy Correlation Analysis](figures/bankruptcy_correlation.png)
 
 ---
-
 # Key Findings
 
 The experimental results indicate:
