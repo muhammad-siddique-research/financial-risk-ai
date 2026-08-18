@@ -7,166 +7,88 @@
 
 ---
 
-## Overview
+# Overview
 
-This project develops an interpretable artificial intelligence framework for predicting corporate financial risk using financial indicators and machine learning approaches.
+Financial distress prediction is a critical research problem in corporate finance, risk management, and artificial intelligence.
 
-The research integrates traditional econometric modeling with modern machine learning techniques to investigate whether artificial intelligence methods can improve bankruptcy risk prediction while maintaining transparency and interpretability.
+This project develops an interpretable machine learning framework for predicting corporate bankruptcy risk using financial indicators. The research integrates econometric modeling with advanced machine learning approaches to evaluate predictive performance while maintaining transparency through Explainable AI (XAI).
 
-The project focuses on three major objectives:
-
-- Predict corporate bankruptcy risk using financial indicators
-- Compare traditional econometric and machine learning approaches
-- Identify the key financial factors influencing AI predictions using Explainable AI (XAI)
+The project compares traditional statistical modeling with ensemble learning approaches and applies SHAP-based interpretation to identify the financial factors influencing model predictions.
 
 ---
 
-# Research Motivation
+# Research Objectives
 
-Financial distress prediction is a critical challenge for corporations, investors, financial institutions, and policymakers.
+The project aims to:
 
-Traditional statistical approaches such as logistic regression provide strong interpretability and statistical understanding. However, they may struggle to capture complex non-linear relationships among financial variables.
-
-Machine learning models can discover hidden patterns in financial data and provide improved predictive capabilities.
-
-This project explores how econometric reasoning and artificial intelligence can work together to develop reliable, transparent, and data-driven financial risk assessment systems.
-
----
-
-# Research Questions
-
-This project investigates the following questions:
-
-1. Can machine learning models improve corporate bankruptcy prediction compared with traditional econometric approaches?
-
-2. Which financial indicators are the strongest predictors of corporate financial distress?
-
-3. How can Explainable AI techniques improve the transparency of machine learning-based financial predictions?
+- Develop predictive models for corporate bankruptcy risk assessment
+- Compare econometric and machine learning approaches
+- Identify important financial risk indicators using Explainable AI
+- Demonstrate a transparent AI framework for financial decision support
 
 ---
 
-# Dataset Description
+# Dataset
 
-The project uses a publicly available corporate bankruptcy dataset containing financial indicators of companies.
+The study uses a publicly available corporate bankruptcy dataset containing financial indicators of companies.
 
-The dataset includes multiple categories of financial information:
+### Dataset Characteristics
 
-- Profitability indicators
-- Liquidity measures
-- Leverage ratios
-- Asset utilization metrics
-- Cash flow indicators
-- Growth measures
-- Operational efficiency indicators
-
-## Dataset Summary
-
-- Total observations: **6,819 companies**
-- Original financial features: **96 indicators**
-- Selected features after feature engineering: **76 indicators**
-- Prediction target:
+- Observations: **6,819 companies**
+- Original financial variables: **96 indicators**
+- Final modeling features: **76 indicators**
+- Prediction task:
 
 ```
-Bankruptcy Status
-
 0 = Healthy company
 1 = Bankrupt company
 ```
 
----
+The dataset includes indicators related to:
 
-# Research Workflow
-
-The complete machine learning pipeline follows:
-
-```
-Financial Dataset
-        |
-        ↓
-Data Collection
-        |
-        ↓
-Data Cleaning
-        |
-        ↓
-Exploratory Data Analysis
-        |
-        ↓
-Feature Engineering
-        |
-        ↓
-Feature Scaling
-        |
-        ↓
-Machine Learning Models
-        |
-        ↓
-Model Evaluation
-        |
-        ↓
-Explainable AI Analysis
-        |
-        ↓
-Research Findings
-```
+- Profitability
+- Liquidity
+- Leverage
+- Cash flow
+- Asset utilization
+- Operational efficiency
+- Growth performance
 
 ---
 
 # Methodology
 
-## 1. Data Processing
+The research workflow follows a complete machine learning pipeline:
 
-The data preparation pipeline includes:
-
-- Dataset inspection
-- Missing value analysis
-- Data cleaning
-- Feature selection
-- Feature scaling
-- Training and testing data preparation
-
----
-
-# Machine Learning Models
-
-Three predictive models were developed and evaluated.
-
----
-
-## 1. Logistic Regression
-
-Logistic Regression was used as an econometric baseline model.
-
-Advantages:
-
-- High interpretability
-- Statistical explanation of financial risk factors
-- Probability-based bankruptcy prediction
+```
+Data Collection
+        ↓
+Data Cleaning
+        ↓
+Exploratory Data Analysis
+        ↓
+Feature Engineering
+        ↓
+Feature Scaling
+        ↓
+Model Development
+        ↓
+Performance Evaluation
+        ↓
+Explainable AI Analysis
+```
 
 ---
 
-## 2. Random Forest Classifier
+# Predictive Models
 
-Random Forest was implemented as an ensemble machine learning approach.
+Three classification models were developed and compared:
 
-Advantages:
-
-- Captures non-linear relationships
-- Handles complex interactions between financial indicators
-- Provides feature importance analysis
-
----
-
-## 3. XGBoost Classifier
-
-XGBoost was used as an advanced gradient boosting model.
-
-Advantages:
-
-- Strong performance on structured financial datasets
-- Improved predictive capability
-- Regularization against overfitting
-- Feature importance interpretation
+| Model | Purpose |
+|---|---|
+| Logistic Regression | Econometric baseline model with interpretability |
+| Random Forest | Ensemble learning for non-linear financial relationships |
+| XGBoost | Gradient boosting approach for predictive performance |
 
 ---
 
@@ -182,45 +104,12 @@ Models were evaluated using:
 - Confusion Matrix
 
 ---
-# Results and Model Interpretation
+
+# Results
 
 ## Model Performance Comparison
 
-The developed machine learning models were evaluated using multiple classification metrics including accuracy, precision, recall, F1-score, and ROC-AUC.
-
 ![Model Performance Comparison](figures/model_comparison.png)
-
-
-## ROC Curve Analysis
-
-ROC curves demonstrate the discrimination capability of different predictive models. Higher ROC-AUC values indicate stronger ability to distinguish between financially healthy and high-risk companies.
-
-![ROC Curve Comparison](figures/roc_curve_comparison.png)
-
-
-## Explainable AI Analysis (SHAP)
-
-SHAP (SHapley Additive exPlanations) was applied to interpret model predictions and identify the financial indicators contributing most to bankruptcy risk classification.
-
-![SHAP Feature Importance](figures/shap_feature_importance.png)
-
-
-## Exploratory Data Analysis Insights
-
-### Correlation Structure of Financial Indicators
-
-The correlation matrix highlights relationships among financial variables and helps identify potential multicollinearity and important financial patterns.
-
-![Correlation Heatmap](figures/correlation_heatmap.png)
-
-
-### Financial Indicators Associated with Bankruptcy Risk
-
-Correlation analysis was performed to identify financial indicators showing stronger relationships with bankruptcy outcomes.
-
-![Bankruptcy Correlation Analysis](figures/bankruptcy_correlation.png)
-
-# Model Performance Results
 
 | Model | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
 |---|---:|---:|---:|---:|---:|
@@ -230,32 +119,99 @@ Correlation analysis was performed to identify financial indicators showing stro
 
 ---
 
-# Key Findings
+# Model Interpretation
 
-The experimental results demonstrate:
+## ROC Curve Analysis
 
-- Machine learning models outperform the traditional logistic regression baseline.
-- Random Forest achieved the highest ROC-AUC performance.
-- XGBoost achieved the highest F1-score, showing stronger balance between precision and recall.
-- Ensemble learning approaches are effective for identifying complex financial risk patterns.
+ROC-AUC evaluation demonstrates the ability of each model to distinguish between financially healthy and distressed companies.
+
+![ROC Curve Comparison](figures/roc_curve_comparison.png)
+
+
+## Explainable AI Analysis
+
+SHAP (SHapley Additive exPlanations) was applied to interpret model predictions and identify influential financial indicators.
+
+![SHAP Feature Importance](figures/shap_feature_importance.png)
 
 ---
 
-# Explainable Artificial Intelligence (XAI)
+# Exploratory Data Analysis
 
-To improve transparency and interpretability, SHAP (SHapley Additive exPlanations) analysis was applied.
+## Financial Variable Relationships
 
-SHAP analysis provides:
+Correlation analysis was performed to understand relationships among financial indicators.
 
-- Global feature importance ranking
-- Financial indicator contribution analysis
-- Individual prediction explanations
+![Correlation Heatmap](figures/correlation_heatmap.png)
 
-This allows the model to move beyond prediction and explain:
 
-> Why was a company classified as financially risky?
+## Bankruptcy Risk Indicators
 
-The explainability component improves trust and supports evidence-based financial decision-making.
+The analysis explored financial variables associated with bankruptcy outcomes.
+
+![Bankruptcy Correlation](figures/bankruptcy_correlation.png)
+
+---
+
+# Key Findings
+
+The experimental results indicate:
+
+- Machine learning approaches achieved stronger predictive performance compared with the logistic regression baseline.
+- Ensemble models successfully captured complex relationships among financial indicators.
+- XGBoost achieved the strongest balance between precision and recall based on F1-score.
+- SHAP analysis improved model transparency by identifying important financial drivers.
+
+---
+
+# Research Impact and Applications
+
+The developed framework has potential applications in:
+
+## Financial Institutions
+
+- Credit risk assessment
+- Early warning systems
+- Portfolio risk monitoring
+
+## Corporate Management
+
+- Financial health monitoring
+- Identification of liquidity and leverage risks
+- Strategic decision support
+
+## Investment Analysis
+
+- Risk-based company screening
+- Evidence-based investment evaluation
+
+## Regulatory Applications
+
+- Financial stability monitoring
+- Explainable AI-supported supervision
+
+The integration of machine learning and Explainable AI enables predictive capability while maintaining transparency and human oversight.
+
+---
+
+# Limitations and Future Research
+
+## Limitations
+
+- The analysis is based on historical financial data.
+- External economic and industry factors are not included.
+- Model performance requires validation on additional datasets.
+- AI predictions should support expert judgement rather than replace it.
+
+## Future Research
+
+Future extensions may include:
+
+- Hyperparameter optimization
+- Deep learning approaches
+- Time-series financial forecasting
+- Integration of macroeconomic indicators
+- Real-time financial risk monitoring systems
 
 ---
 
@@ -264,15 +220,9 @@ The explainability component improves trust and supports evidence-based financia
 ```
 financial-risk-ai/
 
-│
 ├── data/
 │   ├── raw/
 │   └── processed/
-│       ├── financial_data_cleaned.csv
-│       ├── X_train_scaled.csv
-│       ├── X_test_scaled.csv
-│       ├── y_train.csv
-│       └── y_test.csv
 │
 ├── notebooks/
 │   ├── 01_data_collection.ipynb
@@ -285,37 +235,43 @@ financial-risk-ai/
 │   ├── model_comparison.csv
 │   └── shap_feature_importance.csv
 │
-├── README.md
+├── figures/
+│   ├── model_comparison.png
+│   ├── roc_curve_comparison.png
+│   ├── shap_feature_importance.png
+│   ├── correlation_heatmap.png
+│   └── bankruptcy_correlation.png
 │
+├── README.md
 └── requirements.txt
 ```
 
 ---
 
-# Technologies Used
+# Technologies
 
-## Programming Language
+### Programming
 
 - Python
 
-## Data Analysis
+### Data Analysis
 
 - Pandas
 - NumPy
 - Matplotlib
 - Seaborn
 
-## Machine Learning
+### Machine Learning
 
 - Scikit-learn
 - Random Forest
 - XGBoost
 
-## Explainable AI
+### Explainable AI
 
 - SHAP
 
-## Development Environment
+### Development Environment
 
 - Google Colab
 - Jupyter Notebook
@@ -323,15 +279,15 @@ financial-risk-ai/
 
 ---
 
-# Installation and Reproducibility
+# Reproducibility
 
-Clone this repository:
+Clone the repository:
 
 ```bash
 git clone https://github.com/muhammad-siddique-research/financial-risk-ai.git
 ```
 
-Install required packages:
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -341,30 +297,21 @@ Run notebooks sequentially:
 
 1. Data Collection
 2. Data Cleaning
-3. Exploratory Data Analysis
+3. Exploratory Analysis
 4. Feature Engineering
-5. Predictive Modeling
-
----
-
-# Future Research Directions
-
-Future improvements may include:
-
-- Hyperparameter optimization using Bayesian optimization
-- Deep learning approaches for financial risk prediction
-- Time-series financial distress forecasting
-- Real-time financial risk monitoring systems
-- Integration with alternative financial data sources
-- Deployment of an AI-based financial risk dashboard
+5. Modeling and Evaluation
 
 ---
 
 # Research Contribution
 
-This project demonstrates how econometric foundations and artificial intelligence techniques can be integrated to create transparent and effective financial risk prediction systems.
+This project demonstrates a framework combining:
 
-The combination of predictive machine learning models and Explainable AI provides a pathway toward trustworthy AI-based financial decision support.
+- Econometric financial reasoning
+- Machine learning prediction
+- Explainable Artificial Intelligence
+
+The research highlights how AI-based financial risk models can achieve predictive performance while maintaining interpretability, transparency, and responsible deployment principles.
 
 ---
 
@@ -376,7 +323,11 @@ Research Interests:
 
 - Artificial Intelligence
 - Machine Learning
-- Econometrics
-- Economist & Financial Analytics
+- Economic & Financial Analytics
+- Econometric Modeling
 - Explainable AI
 - Quantitative Research
+
+- # References
+
+For detailed academic references, see [REFERENCES.md]
