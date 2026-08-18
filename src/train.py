@@ -5,112 +5,196 @@ Author:
 Muhammad Siddique
 
 Purpose:
-End-to-end training pipeline for corporate bankruptcy prediction
-using econometric and machine learning approaches.
+End-to-end reproducible training pipeline for corporate
+bankruptcy risk prediction using econometric and machine
+learning approaches.
 """
 
-import pandas as pd
+
 import joblib
-import os
-
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-
-from xgboost import XGBClassifier
+import pandas as pd
 
 
-# Paths
-
-DATA_PATH = "data/processed/financial_data_cleaned.csv"
-
-MODEL_PATH = "models"
-
-os.makedirs(MODEL_PATH, exist_ok=True)
-
-
-# Load Data
-
-print("Loading dataset...")
-
-df = pd.read_csv(DATA_PATH)
-
-
-# Separate features and target
-
-X = df.drop("Bankrupt?", axis=1)
-
-y = df["Bankrupt?"]
-
-
-# Train-test split
-
-X_train, X_test, y_train, y_test = train_test_split(
-    X,
-    y,
-    test_size=0.2,
-    random_state=42,
-    stratify=y
+from src.config import (
+    DATA_PATH,
+    MODEL_DIR
 )
 
 
-# Scaling
-
-scaler = StandardScaler()
-
-X_train_scaled = scaler.fit_transform(X_train)
-
-X_test_scaled = scaler.transform(X_test)
-
+from src.preprocessing import (
+    load_data,
+    separate_features_target,
+    split_data,
+    scale_features
+)
 
 
-# Models
+from src.feature_engineering import (
+    prepare_features
+)
 
-models = {
 
-    "logistic_regression":
-    LogisticRegression(max_iter=1000),
+from src.models import (
+    get_all_models
+)
 
-    "random_forest":
-    RandomForestClassifier(
-        n_estimators=200,
-        random_state=42
-    ),
 
-    "xgboost":
-    XGBClassifier(
-        random_state=42,
-        eval_metric="logloss"
+from src.evaluation import (
+    evaluate_model
+)
+
+
+from src.utils import (
+    save_message
+)
+
+
+
+def main():
+
+    save_message(
+        "Starting Financial Risk Prediction Pipeline"
     )
-}
 
 
+    # -----------------------------
+    # Load dataset
+    # -----------------------------
 
-# Training
-
-for name, model in models.items():
-
-    print(f"Training {name}...")
-
-    model.fit(
-        X_train_scaled,
-        y_train
+    df = load_data(
+        DATA_PATH
     )
+
+
+    print(
+        "Dataset loaded:",
+        df.shape
+    )
+
+
+    # -----------------------------
+    # Feature-target separation
+    # -----------------------------
+
+    X, y = separate_features_target(
+        df
+    )
+
+
+    # -----------------------------
+    # Feature engineering
+    # -----------------------------
+
+    X = prepare_features(
+        X
+    )
+
+
+    # -----------------------------
+    # Train-test split
+    # -----------------------------
+
+    X_train, X_test, y_train, y_test = split_data(
+        X,
+        y
+    )
+
+
+    # -----------------------------
+    # Scaling
+    # -----------------------------
+
+    X_train_scaled, X_test_scaled, scaler = scale_features(
+        X_train,
+        X_test
+    )
+
 
     joblib.dump(
-        model,
-        f"{MODEL_PATH}/{name}.pkl"
+        scaler,
+        f"{MODEL_DIR}/scaler.pkl"
     )
 
 
-# Save scaler
+    # -----------------------------
+    # Model training
+    # -----------------------------
 
-joblib.dump(
-    scaler,
-    f"{MODEL_PATH}/scaler.pkl"
-)
+    models = get_all_models()
 
 
-print("Training completed successfully.")
+    results = []
+
+
+    for name, model in models.items():
+
+
+        print(
+            f"Training {name}"
+        )
+
+
+        model.fit(
+            X_train_scaled,
+            y_train
+        )
+
+
+        # Save model
+
+        filename = (
+            name.lower()
+            .replace(" ", "_")
+        )
+
+
+        joblib.dump(
+            model,
+            f"{MODEL_DIR}/{filename}.pkl"
+        )
+
+
+        # Evaluation
+
+        metrics = evaluate_model(
+            model,
+            X_test_scaled,
+            y_test
+        )
+
+
+        metrics["Model"] = name
+
+
+        results.append(
+            metrics
+        )
+
+
+    # -----------------------------
+    # Save results
+    # -----------------------------
+
+    results_df = pd.DataFrame(
+        results
+    )
+
+
+    results_df.to_csv(
+        "results/model_results.csv",
+        index=False
+    )
+
+
+    save_message(
+        "Training completed successfully"
+    )
+
+
+    print(results_df)
+
+
+
+if __name__ == "__main__":
+
+    main()
